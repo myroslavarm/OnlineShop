@@ -3,7 +3,7 @@ package GameShop;
 import java.util.ArrayList;
 
 public class ComputerGameBox {
-    private ArrayList<ComputerGame> games = new ArrayList<ComputerGame>();
+    private ArrayList<ComputerGame> games = new ArrayList<>();
 
     public void addGame(ComputerGame game){
         games.add(game);
@@ -20,5 +20,10 @@ public class ComputerGameBox {
                 matchingGames.add(gm);
             }
         return matchingGames;
+    }
+    @Override
+    public String toString() {
+        return "GameShop.ComputerGameBox{" +
+                "games=" + games + '}';
     }
 }

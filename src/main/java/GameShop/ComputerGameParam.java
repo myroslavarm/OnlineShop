@@ -10,9 +10,12 @@ public class ComputerGameParam {
     private int ageRestriction;
     private ArrayList<String> platforms = new ArrayList<String>();
 
-    public ComputerGameParam(String name, ArrayList<Genre> genres) {
+    public ComputerGameParam(String name, String description, ArrayList<Genre> genres, int price, int ageRestriction) {
         this.name = name;
+        this.description = description;
         this.genres = genres;
+        this.price = price;
+        this.ageRestriction = ageRestriction;
     }
 
     @Override
