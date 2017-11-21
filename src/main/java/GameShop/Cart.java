@@ -9,6 +9,15 @@ public class Cart{
     private DeliveryStrategy deliverystrategy;
     private ArrayList<ComputerGame> games;
 
+    public Cart(PaymentStrategy paymentstrategy, DeliveryStrategy deliverystrategy) {
+        games = new ArrayList<>();
+        this.paymentstrategy = paymentstrategy;
+        this.deliverystrategy = deliverystrategy;
+    }
+    public Cart(){
+
+    }
+
     public void setPaymentStrategy(PaymentStrategy paymentstrategy) {
         this.paymentstrategy = paymentstrategy;
     }
@@ -18,7 +27,11 @@ public class Cart{
     }
 
     public double computeTotalPrice(){
-        return 100.500;
+        double price = 0;
+        for(ComputerGame game : games){
+            price += game.getPrice();
+        }
+        return price;
     }
 
     public boolean ship(){
