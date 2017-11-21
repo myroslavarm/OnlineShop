@@ -31,7 +31,6 @@ public class CartTest {
         np = new DeliveryNovaPoshta();
         dhl = new DeliveryDHL();
         cart = new Cart(cash, np);
-        cd1 = new CartDecorator(cart);
         genres.add(Genre.ACTION);
         cgp1 = new ComputerGameParam("Chesnut cream", "Vincent loses", genres, 100, 18);
         cgp2 = new ComputerGameParam("UCU", "Kill the lines", genres, 43000, 18);
@@ -42,18 +41,44 @@ public class CartTest {
         games = new ArrayList<>();
         games.add(gm1);
         games.add(gm2);
-        bd = new BonusDecorator(cart);
-        dd = new DiscountDecorator(cart);
     }
 
     @Test
-    public void testMain() throws Exception {
-        assertEquals(cart.ship(), true);
-        assertEquals(np.deliver(games), true);
-        assertEquals(cart.computeTotalPrice(),43100.0, 0.001);
-        assertEquals(cash.pay(43100), true);
-        assertEquals(dd.computeTotalPrice(),38790, 0.001);
-        assertEquals(bd.computeTotalPrice(), 43100, 0.001);
+    public void testSetPaymentStrategy() throws Exception {
+        assertEquals(true, cash.pay(43100));
+    }
+
+    @Test
+    public void testSetDeliveryStrategy() throws Exception {
+        assertEquals(true, np.deliver(games));
+    }
+
+    @Test
+    public void computeTotalPrice() throws Exception {
+        assertEquals(43100.0, cart.computeTotalPrice(),0.001);
+    }
+
+    @Test
+    public void testShip() throws Exception {
+        assertEquals(true, cart.ship());
+    }
+
+    @Test
+    public void testAddGame() throws Exception {
+        cart.addGame(gm1);
+        assertEquals(43200.0, cart.computeTotalPrice(), 0.001);
+    }
+
+    @Test
+    public void testDiscount() throws Exception {
+        cart = new DiscountDecorator(cart);
+        assertEquals(38790.0, cart.computeTotalPrice(),0.001);
+    }
+
+    @Test
+    public void testBonus() throws Exception {
+       cart = new BonusDecorator(cart);
+        assertEquals(43100.0, cart.computeTotalPrice(), 0.001);
     }
 
 }

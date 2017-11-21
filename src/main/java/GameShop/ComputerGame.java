@@ -39,8 +39,7 @@ public class ComputerGame {
         return params.getPlatforms();
     }
 
-    public ComputerGame(ComputerGameParam params){
-        params = new ComputerGameParam(params);
-
+    public ComputerGame(ComputerGameParam param){
+        params = new ComputerGameParam(param);
     }
 }
