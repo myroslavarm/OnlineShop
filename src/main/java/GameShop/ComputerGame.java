@@ -40,6 +40,6 @@ public class ComputerGame {
     }
 
     public ComputerGame(ComputerGameParam param){
-        params = new ComputerGameParam(param);
+        this.params = new ComputerGameParam(param);
     }
 }

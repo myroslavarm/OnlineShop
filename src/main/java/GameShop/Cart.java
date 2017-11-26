@@ -3,6 +3,7 @@ package GameShop;
 import org.junit.runner.Computer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cart{
     private PaymentStrategy paymentstrategy;
@@ -10,7 +11,7 @@ public class Cart{
     private ArrayList<ComputerGame> games;
 
     public Cart(PaymentStrategy paymentstrategy, DeliveryStrategy deliverystrategy) {
-        games = new ArrayList<>();
+        this.games = new ArrayList<>();
         this.paymentstrategy = paymentstrategy;
         this.deliverystrategy = deliverystrategy;
     }
@@ -24,6 +25,10 @@ public class Cart{
 
     public void setDeliveryStrategy(DeliveryStrategy deliverystrategy) {
         this.deliverystrategy = deliverystrategy;
+    }
+
+    public List<ComputerGame> getGames() {
+        return games;
     }
 
     public double computeTotalPrice(){

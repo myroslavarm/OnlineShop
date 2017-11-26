@@ -22,7 +22,7 @@ public class ComputerGameBoxTest {
         cg1 = new ComputerGame(cgp1);
         cg2 = new ComputerGame(cgp2);
         cgb = new ComputerGameBox();
-        games = new ArrayList<ComputerGame>();
+        games = new ArrayList<>();
         games.add(cg1);
         games.add(cg2);
         cgb.addGame(cg1);

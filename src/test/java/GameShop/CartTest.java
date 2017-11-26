@@ -50,6 +50,7 @@ public class CartTest {
 
     @Test
     public void testSetDeliveryStrategy() throws Exception {
+        System.out.println(games);
         assertEquals(true, np.deliver(games));
     }
 
