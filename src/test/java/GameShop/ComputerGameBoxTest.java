@@ -36,9 +36,7 @@ public class ComputerGameBoxTest {
 
     @Test
     public void testSearch() throws Exception {
-        System.out.println(cgb);
-        System.out.println(cgp1);
-        assertEquals(cgb.search(cgp1).size(), 1);
+        assertEquals(2, cgb.search(cgp1).size());
     }
 
 }

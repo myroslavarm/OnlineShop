@@ -42,4 +42,12 @@ public class ComputerGame {
     public ComputerGame(ComputerGameParam param){
         this.params = new ComputerGameParam(param);
     }
+
+    @Override
+    public String toString() {
+        return "ComputerGame{" +
+                "id=" + id +
+                ", params=" + params +
+                '}';
+    }
 }

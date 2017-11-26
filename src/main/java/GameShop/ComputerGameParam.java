@@ -32,7 +32,10 @@ public class ComputerGameParam {
 
     public ComputerGameParam(ComputerGameParam params) {
         name = params.name;
-        genres = new ArrayList<Genre>(params.genres);
+        description = params.description;
+        genres = new ArrayList<>(params.genres);
+        price = params.price;
+        ageRestriction = params.ageRestriction;
     }
 
     public String getName() {
@@ -84,13 +87,13 @@ public class ComputerGameParam {
     }
 
     public boolean match(ComputerGameParam otherGame){
-        if(getName() != otherGame.getName()){
+        if(!getName().equals(otherGame.getName())){
             return false;
         }
-        if(getGenres() != otherGame.getGenres()){
+        if(!getGenres().equals(otherGame.getGenres())){
             return false;
         }
-        if(getName() == otherGame.getName() && getGenres() == otherGame.getGenres()){
+        if(getName().equals(otherGame.getName()) && getGenres().equals(otherGame.getGenres())){
             return true;
         }
         return false;
